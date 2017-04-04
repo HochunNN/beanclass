@@ -1,0 +1,12 @@
+<input type="hidden" id="alert" value="<%= alert %>">
+
+<script>
+    $(document).ready(function() {
+        var alert_time = $("#alert").val();
+        
+        if (alert_time.length > 1) {
+            alert(alert_time)
+        }
+        
+    });
+</script>
