@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>BeanClass</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -30,7 +30,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
   
   <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-ko_KR.min.js"></script>
 
 
   <!--timepicker-->
@@ -42,7 +42,7 @@
   
 </head>
 <body>
-  
+<div class="container">
   <div style="min-height:1100px" align="center">
     <div style="margin-top:20px; margin-right:30px;" align="right">
         <a href="https://khuis.khu.ac.kr/" target="_black">
@@ -51,17 +51,20 @@
         <a href="http://codrug.me/" target="_blank">
             <img height="40" width="40" src="/assets/codruglogo.png" class="img-circle">
         </a>
+        <a href="https://www.facebook.com/FindBeanClass/" target="_blank">
+            <img height="40" width="40" src="/assets/fb-art.png" class="img-circle">
+        </a>
     </div>
     
       <a href="/">    
-        <!--<img style="max-width: 100%; height: auto; margin-top:60px;"  src="/assets/kyungheelogo.png">-->
-        <h1>경희대짱</h1>
+        <img style="max-width: 100%; height: auto; margin-top:60px;"  src="/assets/kyungheelogo.png">
       </a>
     <div style="margin-top:100px" class="container">
               <form action=/home/result method="get">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="form-group">
+                <!--<div class="row">-->
+                      <!--<div class="col-xs-3">-->
+                      <div>
+                        <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
                             <label for="exampleInputEmail1">요일</label>
                             <select class="selectpicker form-control" multiple title="요일을 선택해주세요" data-max-options="1" name="day">
                                 <option value="월">월</option>
@@ -71,9 +74,9 @@
                                 <option value="금">금</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="form-group">
+                      <!--</div>-->
+                      <!--<div class="col-xs-3">-->
+                        <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
                             <label for="exampleInputEmail1">건물</label>
                             <select class="selectpicker form-control" multiple title="건물을 선택해주세요" data-max-options="1" data-live-search="true" name="building">
                                 <option value="청">청운관</option>
@@ -87,27 +90,37 @@
                                 <option value="정">정경대</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <label for="exampleInputEmail1">시작 시간</label>
-                        <div class="form-group input-group bootstrap-timepicker timepicker">
-                            
-                            <input id="timepicker1" type="text" class="form-control input-small" name="begin">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                      <!--</div>-->
+                    
+                      <!--<div class="col-xs-3">-->
+                        <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
+                          <label for="exampleInputEmail1">시작시간</label>
+                          <div class="input-group bootstrap-timepicker timepicker">
+                              
+                              <input id="timepicker1" type="text" class="form-control input-small" name="begin">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                          </div>
                         </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">끝 시간</label>
-                            <div class="form-group input-group bootstrap-timepicker timepicker">
+                      <!--</div>-->
+                      <!--<div class="col-xs-3">-->
+                        <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
+                            <label for="exampleInputEmail1">끝시간</label>
+                            <div class="input-group bootstrap-timepicker timepicker">
                                 
                                 <input id="timepicker2" type="text" class="form-control input-small" name="end">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                             </div>
                         </div>
-                    </div>
-                </div><br>
-                <button type="submit" class="btn btn-danger">봅시다</button>
+                      <!--</div>-->
+                      </div>
+                <!--</div><br>-->
+                    <div>
+                      <button type="submit" class="btn btn-danger" style="float:center;">
+                        <span class="glyphicon glyphicon-send" aria-hidden="true">
+                          조회하기
+                        </span>
+                      </button>
+                    </div>  
               </form>
     </div>
     
@@ -117,30 +130,30 @@
   
 <%= yield %><br><br>
 
-    <div class="container" style="width:50%; float:right">
-    	<span style="color: black; font-size:15px;" align="left">//한줄톡//</span>
-      <!--한줄 톡 보여주기-->
-      <div id="linetalks" style="padding: 10px; border: black solid 0.5px;">
-        <% @linetalks.each do |l| %>
-          <p align="left" id="linetalk">-<%= l.linetalk_content %></p><hr>
-        <% end %>
-        
-        <!--<= will_paginate @linetalks %>    -->
+      <div class="container"style="max-width: 100%; height: auto; float:center;">
+      	<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" style="color: black; font-size:15px;" align="left">&nbsp;한줄톡</span>
+        <!--한줄 톡 보여주기-->
+        <div id="linetalks" style="padding: 10px; border: #2CA44C solid 1px; border-radius:25px;">
+          <% @linetalks.each do |l| %>
+            <p align="left" id="linetalk" style="border-bottom:1px gray dotted;">-<%= l.linetalk_content %></p>
+          <% end %>
+        </div>
+        <%= will_paginate @linetalks %>   
+        <div class="form-group">
+          <div id="page_main_line_talk" class="input-group">
+            <input id="linetalk_input" type="text" class="form-control talk_content" name="page_main_line_talk" placeholder="무엇이든 얘기하세요." style="width:100%; background: none; background-color: none; border-radius: 0;" required>
+            <span class="input-group-btn">
+              <button class="btn btn-default talk_submit" type="button" style="background: none; border-radius: 0;">톡!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div>
       </div>
-      <div class="form-group" style="">
-        <div id="page_main_line_talk" class="input-group">
-          <input id="linetalk_input" type="text" class="form-control talk_content" name="page_main_line_talk" placeholder="아무말대잔치!" style="width:100%; background: none; background-color: none; border-radius: 0;" required>
-          <span class="input-group-btn">
-            <button class="btn btn-default talk_submit" type="button" style="background: none; border-radius: 0;">톡!</button>
-          </span>
-        </div><!-- /input-group -->
-      </div>
-    </div>
-
+</div>
 
     <script type="text/javascript">
         $('#timepicker1').timepicker();
         $('#timepicker2').timepicker();
+        $('.selectpicker').selectpicker('render');
         
         // 한줄톡 관련
         $("#linetalk_input").keydown(function (key) {
@@ -154,7 +167,8 @@
         		      url: "/home/linetalk_write",
         		      data: { linetalk_content_view: talk_content },
         		      success: function(){
-        		        $("#linetalks").prepend("<p id='linetalk'>"+talk_content+"</p>");
+        		        $('#linetalks').children().last().remove();
+        		        $("#linetalks").prepend("<p align='left' id='linetalk' style='border-bottom:1px gray dotted;'>"+"-"+talk_content+"</p>");
         		        $(".talk_content").val('');
         		      },  
         		      error: function(){
@@ -177,7 +191,8 @@
         	      url: "/home/linetalk_write",
         	      data: { linetalk_content_view: talk_content },
         	      success: function(){
-        	        $("#linetalks").prepend("<p align='left' id='linetalk'>"+"-"+talk_content+"</p>");
+        	        $('#linetalks').children("p:last").remove();
+        	        $("#linetalks").prepend("<p align='left' id='linetalk' style='border-bottom:1px gray dotted;'>"+"-"+talk_content+"</p>");
         	        $(".talk_content").val('');
         	      },  
         	      error: function(){
@@ -194,6 +209,13 @@
         
           
     </script>
-
+    <p style="text-align:center;">
+      <strong>수정사항이나 문의는 <span style="color:#EA4335">한줄톡</span>에 남겨주세요!</strong>
+    </p>
+    <p style="text-align:center;">
+        Copyright ©
+        <strong>HoBrothers</strong>
+        All rights reserved.
+    </p>
 </body>
 </html>

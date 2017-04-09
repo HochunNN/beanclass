@@ -1,9 +1,23 @@
 <br><br>
-
-    <% @final_result.each do |f| %>
-            <%= f %><br>
-    <% end %>
-
+    <table class="table table-bordered table-inverse" style="max-width: 100%; height: auto; padding: 10px; font-weight:bold;">
+        <thead>
+            <tr>
+                <th style="text-align:center; color:#EA4335; font-size:20px; border: 1px solid #FBBA00;">
+                  강의실
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr> 
+              <td style="text-align:center; color:#4285F4; border: 1px solid #FBBA00;">
+                <% @final_result.each do |f| %>
+                    <%= f %>&nbsp;&nbsp;&nbsp;
+                <% end %>
+              </td>    
+            </tr>
+        </tbody>
+    </table>
+    
 <script type="text/javascript">
     
 </script>

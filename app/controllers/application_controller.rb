@@ -9,6 +9,17 @@ class ApplicationController < ActionController::Base
     @linetalks = Linetalk.order("id desc").paginate(:page => params[:page], :per_page => 10)
   end
 
-  
+#############################################################################
+##################################한줄톡#####################################
+#############################################################################
+
+  def linetalk_write   
+    talk = Linetalk.new
+    talk.linetalk_content = params[:linetalk_content_view]
+    talk.save
+    
+    
+    render :nothing => true
+  end
   
 end

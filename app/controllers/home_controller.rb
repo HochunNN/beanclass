@@ -42,16 +42,7 @@ class HomeController < ApplicationController
     end
     
     
-#############################################################################
-##################################한줄톡#####################################
-#############################################################################
 
-    def linetalk_write   
-      talk = Linetalk.new
-      talk.linetalk_content = params[:linetalk_content_view]
-      talk.save
-      render :nothing => true
-    end
     
     
       
