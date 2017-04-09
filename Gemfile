@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'sqlite3'
 gem 'will_paginate'
 gem "roo", "~> 2.7.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -35,7 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'sqlite3'
+  
   gem 'byebug'
 end
 
@@ -48,9 +49,3 @@ group :development do
 end
 
 
-group :production do
-  gem 'pg'
-  
-  gem 'rails_12factor'
-  
-end
