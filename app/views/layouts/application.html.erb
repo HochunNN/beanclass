@@ -48,7 +48,7 @@
   <div style="min-height:1100px" align="center">
     <div style="margin-top:20px; margin-right:30px;" align="right">
         <a href="https://khuis.khu.ac.kr/" target="_black">
-            <img height="40" width="40" src="/assets/kyunghee.jpeg" class="img-circle">
+            <img height="40" width="40" image_path("kyunghee.jpeg") src="<%= image_path("kyunghee.jpeg") %>"  class="img-circle">
         </a>
         <a href="http://codrug.me/" target="_blank">
             <img height="40" width="40" src="/assets/codruglogo.png" class="img-circle">
@@ -59,7 +59,7 @@
     </div>
     
       <a href="/">    
-        <img style="max-width: 100%; height: auto; margin-top:60px;"  src="/assets/kyungheelogo.png">
+        <img style="max-width: 100%; height: auto; margin-top:60px;"  src="<%= image_path("kyungheelogo.png") %>">
       </a>
     <div style="margin-top:100px" class="container">
               <form action=/home/result method="get">

@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'sqlite3'
 gem 'will_paginate'
 gem "roo", "~> 2.7.0"
+gem 'seed_dump'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
