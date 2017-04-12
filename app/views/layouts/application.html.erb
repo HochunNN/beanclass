@@ -152,65 +152,7 @@
       </div>
 </div>
 
-    <script type="text/javascript">
-        $('#timepicker1').timepicker();
-        $('#timepicker2').timepicker();
-        $('.selectpicker').selectpicker('render');
-        
-        // 한줄톡 관련
-        $("#linetalk_input").keydown(function (key) {
-            if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
-              talk_content = $(".talk_content").val()
-        	    if (talk_content == "" || talk_content.length > 20) {
-        	    	alert("동무 글이 없거나 20자를 넘어가면 안된다오")
-        	    } else {
-        		    $.ajax({
-        		      method:"post",
-        		      url: "/home/linetalk_write",
-        		      data: { linetalk_content_view: talk_content },
-        		      success: function(){
-        		        $('#linetalks').children().last().remove();
-        		        $("#linetalks").prepend("<p align='left' id='linetalk' style='border-bottom:1px gray dotted;'>"+"-"+talk_content+"</p>");
-        		        $(".talk_content").val('');
-        		      },  
-        		      error: function(){
-        		        alert("동무 에러가 났소 연락부탁하오");
-        		        $(".talk_content").val('');
-        		      }
-        		      // $("#reply_"+post_id).append("<p>"+post_content+"</p>")
-        		      // $("#content_"+post_id).val('');
-        		    })
-        	    }
-            }
-          });
-          $(".talk_submit").click(function(){
-            talk_content = $(".talk_content").val()
-            if (talk_content == "" || talk_content.length > 20) {
-            	alert("동무 글이 없거나 20자를 넘어가면 안된다오")
-            } else {
-        	    $.ajax({
-        	      method:"post",
-        	      url: "/home/linetalk_write",
-        	      data: { linetalk_content_view: talk_content },
-        	      success: function(){
-        	        $('#linetalks').children("p:last").remove();
-        	        $("#linetalks").prepend("<p align='left' id='linetalk' style='border-bottom:1px gray dotted;'>"+"-"+talk_content+"</p>");
-        	        $(".talk_content").val('');
-        	      },  
-        	      error: function(){
-        	        alert("동무 에러가 났소 연락부탁하오");
-        	        $(".talk_content").val('');
-        	      }
-        	      // $("#reply_"+post_id).append("<p>"+post_content+"</p>")
-        	      // $("#content_"+post_id).val('');
-        	    })
-            }
-          })
-            //   한줄톡 끝
-        
-        
-          
-    </script>
+    
     <p style="text-align:center;">
       <strong>수정사항이나 문의는 <span style="color:#EA4335">한줄톡</span>에 남겨주세요!</strong>
     </p>
@@ -219,5 +161,77 @@
         <strong>HoBrothers</strong>
         All rights reserved.
     </p>
+    
+<script type="text/javascript">
+
+$(document).ready(function (){    
+  // 구글 애널리틱스
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-97232172-1', 'auto');
+  ga('send', 'pageview');
+  
+  // 타임피커, 셀렉트피커
+  $('#timepicker1').timepicker();
+  $('#timepicker2').timepicker();
+  $('.selectpicker').selectpicker('render');
+  
+  // 한줄톡 관련
+  $("#linetalk_input").keydown(function (key) {
+      if(key.keyCode == 13){//키가 13이면 실행 (엔터는 13)
+        talk_content = $(".talk_content").val()
+  	    if (talk_content == "" || talk_content.length > 20) {
+  	    	alert("동무 글이 없거나 20자를 넘어가면 안된다오")
+  	    } else {
+  		    $.ajax({
+  		      method:"post",
+  		      url: "/home/linetalk_write",
+  		      data: { linetalk_content_view: talk_content },
+  		      success: function(){
+  		        $('#linetalks').children().last().remove();
+  		        $("#linetalks").prepend("<p align='left' id='linetalk' style='border-bottom:1px gray dotted;'>"+"-"+talk_content+"</p>");
+  		        $(".talk_content").val('');
+  		      },  
+  		      error: function(){
+  		        alert("동무 에러가 났소 연락부탁하오");
+  		        $(".talk_content").val('');
+  		      }
+  		      // $("#reply_"+post_id).append("<p>"+post_content+"</p>")
+  		      // $("#content_"+post_id).val('');
+  		    })
+  	    }
+      }
+    });
+    $(".talk_submit").click(function(){
+      talk_content = $(".talk_content").val()
+      if (talk_content == "" || talk_content.length > 20) {
+      	alert("동무 글이 없거나 20자를 넘어가면 안된다오")
+      } else {
+  	    $.ajax({
+  	      method:"post",
+  	      url: "/home/linetalk_write",
+  	      data: { linetalk_content_view: talk_content },
+  	      success: function(){
+  	        $('#linetalks').children("p:last").remove();
+  	        $("#linetalks").prepend("<p align='left' id='linetalk' style='border-bottom:1px gray dotted;'>"+"-"+talk_content+"</p>");
+  	        $(".talk_content").val('');
+  	      },  
+  	      error: function(){
+  	        alert("동무 에러가 났소 연락부탁하오");
+  	        $(".talk_content").val('');
+  	      }
+  	      // $("#reply_"+post_id).append("<p>"+post_content+"</p>")
+  	      // $("#content_"+post_id).val('');
+  	    })
+      }
+    });
+      //   한줄톡 끝
+});
+        
+          
+</script>
 </body>
 </html>
