@@ -56,38 +56,69 @@
     </div>
     
       <a href="/">    
-        <img style="max-width: 100%; height: auto; margin-top:60px;"  src="<%= image_path("kyungheelogo.png") %>">
+        <img style="max-width: 100%; height: auto; margin-top:60px;"  src="<%= image_path("kyungheelogo2.png") %>">
       </a>
-    <div style="margin-top:100px" class="container">
+    <div style="margin-top:30px" class="container">
               <form action=/home/result method="get">
                 <!--<div class="row">-->
                       <!--<div class="col-xs-3">-->
                       <div>
-                        <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
-                            <label for="exampleInputEmail1">요일</label>
-                            <select class="selectpicker form-control" multiple title="요일을 선택해주세요" data-max-options="1" name="day">
-                                <option value="월">월</option>
-                                <option value="화">화</option>
-                                <option value="수">수</option>
-                                <option value="목">목</option>
-                                <option value="금">금</option>
+                        
+                        <div class="form-group" style="max-width: 50%; height: auto;">
+                            <label for="exampleInputEmail1">캠퍼스</label>
+                            <select class="selectpicker form-control" id="seoulglobal" multiple title="동무 캠퍼스 어디요?" data-max-options="1" name="campus">
+                                <option value="seoul">설</option>
+                                <option value="global">국</option>
                             </select>
                         </div>
-                      <!--</div>-->
-                      <!--<div class="col-xs-3">-->
-                        <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
-                            <label for="exampleInputEmail1">건물</label>
-                            <select class="selectpicker form-control" multiple title="건물을 선택해주세요" data-max-options="1" data-live-search="true" name="building">
-                                <option value="청">청운관</option>
-                                <option value="네">네오관</option>
-                                <option value="오">경영대</option>
-                                <option value="호">호관대(별관 포함)</option>
-                                <option value="생">생과대</option>
-                                <option value="문">문과대</option>
-                                <option value="이">이과대</option>
-                                <option value="수">수학과 연습실</option>
-                                <option value="정">정경대</option>
-                            </select>
+                        
+                        <div>
+                          <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
+                              <label for="exampleInputEmail1">요일</label>
+                              <select class="selectpicker form-control" multiple title="요일을 선택해주세요" data-max-options="1" name="day">
+                                  <option value="월">월</option>
+                                  <option value="화">화</option>
+                                  <option value="수">수</option>
+                                  <option value="목">목</option>
+                                  <option value="금">금</option>
+                              </select>
+                          </div>
+                        <!--</div>-->
+                        <!--<div class="col-xs-3">-->
+                          <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
+                              <label for="exampleInputEmail1">건물</label>
+                              <select class="selectpicker form-control" id="buildings" multiple title="건물을 선택해주세요" data-max-options="1" data-live-search="true" name="building" value="test">
+                                  <option class="before_select" disabled>동무 캠퍼스 까묵었다우</option>
+                                  <!--서울-->
+                                  <option class="seoul hidden" value="청">청운관</option>
+                                  <option class="seoul hidden" value="네">네오관</option>
+                                  <option class="seoul hidden" value="호">호관대(별관 포함)</option>
+                                  <option class="seoul hidden" value="생">생과대</option>
+                                  <option class="seoul hidden" value="미">미대</option>
+                                  <option class="seoul hidden" value="이">이과대</option>
+                                  <option class="seoul hidden" value="문">문과대</option>
+                                  <option class="seoul hidden" value="약">약대</option>
+                                  <option class="seoul hidden" value="오">경영대</option>
+                                  <option class="seoul hidden" value="정">정경대</option>
+                                  <option class="seoul hidden" value="무">무용대</option>
+                                  <option class="seoul hidden" value="법">법대(제2법 포함)</option>
+                                  <option class="seoul hidden" value="의">의대 및 간호대</option>
+                                  <option class="seoul hidden" value="수">수학과 연습실</option>
+                                  
+                                  <!--국캠-->
+                                  <option class="global hidden" value="공">공과대학</option>
+                                  <option class="global hidden" value="국경">국제경영대학관</option>
+                                  <option class="global hidden" value="국제학">국제학관</option>
+                                  <option class="global hidden" value="글">글로벌관</option>
+                                  <option class="global hidden" value="멀">멀티미디어관</option>
+                                  <option class="global hidden" value="도">도예관</option>
+                                  <option class="global hidden" value="생명">생명과학대학</option>
+                                  <option class="global hidden" value="외">외국어대학</option>
+                                  <option class="global hidden" value="체">체육대학</option>
+                                  <option class="global hidden" value="예">예술디자인대학</option>
+                                  <option class="global hidden" value="전">전기정보대학관</option>
+                              </select>
+                          </div>
                         </div>
                       <!--</div>-->
                     
@@ -148,10 +179,20 @@
         </div>
       </div>
 </div>
-
     
     <p style="text-align:center;">
-      <strong>수정사항이나 문의는 <span style="color:#EA4335">한줄톡</span>에 남겨주세요!</strong>
+      <strong>수정사항이나 문의는
+        <a href="https://www.facebook.com/FindBeanClass/" target="_blank">
+        <span style="color:#0000FF">페북메세지</span>
+        </a>
+        에 남겨주세요.<br>
+        <span style="color:green;">BeanClass</span>
+        에서 재미난 일을 꿈 꾸신다면
+        <a href="https://www.facebook.com/FindBeanClass/" target="_blank">
+        <img height="25" width="25" src="<%= image_path("thumbsup.png") %>">
+        </a>
+        를 꾹!
+      </strong>
     </p>
     <p style="text-align:center;">
         Copyright ©
@@ -163,14 +204,16 @@
 
 $(document).ready(function (){    
   // // 구글 애널리틱스
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  // })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-97232172-1', 'auto');
-  ga('send', 'pageview');
+  // ga('create', 'UA-97232172-1', 'auto');
+  // ga('send', 'pageview');
   
+  
+
   // 타임피커, 셀렉트피커
   $('#timepicker1').timepicker();
   $('#timepicker2').timepicker();
@@ -226,6 +269,47 @@ $(document).ready(function (){
       }
     });
       //   한줄톡 끝
+      //   캠퍼스별로 바꾸기
+    
+    var options="";
+    $("#seoulglobal").on('change', function() {
+      var value = $(this).val();
+        $("#buildings").closest("div").find(".before_select").addClass("hidden");
+        if (value.length < 1) {
+          $("#buildings").closest("div").find(".before_select").removeClass("hidden");
+          $("#buildings").closest("div").find(".global").addClass("hidden");
+          $("#buildings").closest("div").find(".seoul").addClass("hidden");
+        };
+        if (value == "seoul") {
+          $("#buildings").closest("div").find("."+value).removeClass("hidden");
+          $("#buildings").closest("div").find(".global").addClass("hidden");
+          
+        } else if (value == "global") {
+          $("#buildings").closest("div").find("."+value).removeClass("hidden");
+          $("#buildings").closest("div").find(".seoul").addClass("hidden");
+          
+        };
+      
+    });
+    
+    
+    // $("#gender").on('change',function(){
+    //     var value=$(this).val();
+        
+    //     if(value=="Male")
+    //     {
+            
+    //     }
+    //     else if(value=="Female")
+    //     {
+    //         options='<option>Select Your Name</option>'
+    //               +'<option value="female1">Female 1</option>'
+    //       		   +'<option value="female2">Female 2</option>';
+    //         $("#name").html(options);
+    //     }
+    //     else
+    //         $("#name").find('option').remove()
+    // });
 });
         
           
