@@ -32,16 +32,16 @@ class HomeController < ApplicationController
       d = classroom_day_filtered.where("class_end >= ?", time_end_wanted).where("class_begin >= ? AND class_begin < ? ", time_begin_wanted, time_end_wanted)
       
       e = a.pluck(:class_room) + b.pluck(:class_room) + c.pluck(:class_room) + d.pluck(:class_room)
-      @aa = a.pluck(:class_room)
-      @bb = b.pluck(:class_room)
-      @cc = c.pluck(:class_room)
-      @dd = d.pluck(:class_room)
+      # @aa = a.pluck(:class_room)
+      # @bb = b.pluck(:class_room)
+      # @cc = c.pluck(:class_room)
+      # @dd = d.pluck(:class_room)
       @f = e.uniq
       @classrooms = classroom_building_filter.pluck(:class_room).uniq
       
       @final_result = @classrooms - @f
-      @time_begin_wanted = params[:begin]
-      @time_end_wanted = params[:end]
+      # @time_begin_wanted = params[:begin]
+      # @time_end_wanted = params[:end]
       unless @final_result.present?
           
         redirect_to "/home/index" 
