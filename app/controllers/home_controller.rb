@@ -29,7 +29,7 @@ class HomeController < ApplicationController
       # 3. 수업의 시작시가 원하는 시간보다 후, 끝시가 원하는 끝시보다 안
       c = classroom_day_filtered.where("class_begin >= ? AND class_begin < ? ", time_begin_wanted, time_end_wanted).where("class_end <= ?", time_end_wanted)
       # 4. 수업의 시작시가 원하는 시간보다 후, 끝시는 원하는 시간보다 더 느림
-      d = classroom_day_filtered.where("class_end >= ?", time_end_wanted).where("class_begin >= ? AND class_begin < ? ", time_begin_wanted, time_end_wanted)
+      d = classroom_day_filtered.where("class_begin >= ? AND class_begin < ? ", time_begin_wanted, time_end_wanted).where("class_end >= ?", time_end_wanted)
       
       e = a.pluck(:class_room) + b.pluck(:class_room) + c.pluck(:class_room) + d.pluck(:class_room)
       # @aa = a.pluck(:class_room)
@@ -39,9 +39,9 @@ class HomeController < ApplicationController
       @f = e.uniq
       @classrooms = classroom_building_filter.pluck(:class_room).uniq
       
-      @final_result = @classrooms - @f
-      # @time_begin_wanted = params[:begin]
-      # @time_end_wanted = params[:end]
+      @final_result = (@classrooms - @f).sort
+      @time_begin_wanted = params[:begin]
+      @time_end_wanted = params[:end]
       unless @final_result.present?
           
         redirect_to "/home/index" 
