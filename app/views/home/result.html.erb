@@ -1,5 +1,4 @@
 <br><br>
-    <%= @time_begin_wanted %> ~ <%= @time_end_wanted %>
     <table class="table table-bordered table-inverse" style="max-width: 100%; height: auto; padding: 10px; font-weight:bold;">
         <thead>
             <tr>
@@ -27,7 +26,34 @@
         </strong>
     </p>
     
+    <input id="params_class_campus" type="hidden" value="<%= params[:campus] %>">
+    <input id="params_class_day" type="hidden" value="<%= params[:day] %>">
+    <input id="params_class_building" type="hidden" value="<%= params[:building] %>">
+     
+    
     
 <script type="text/javascript">
+    $(document).ready(function (){    
+      var campus = $("#params_class_campus").val();
+      var day = $("#params_class_day").val();
+      var building = $("#params_class_building").val();
+    //   alert(campus);
+    //   alert(day);
+    //   alert(building);
+      if(campus.length > 0) {
+           
+        $('#seoulglobal').selectpicker('val', campus);
+          
+      };
+      if(day.length > 0) {
+          
+        $('#day_select').selectpicker('val', day);
+
+      };
+      if(building.length > 0) {
+        $('#buildings').selectpicker('val', building);
+      }
+        
+    });
     
 </script>
