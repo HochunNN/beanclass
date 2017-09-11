@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
   
   <!--부트스트랩-->
   
@@ -66,7 +66,7 @@
                         
                         <div class="form-group" style="max-width: 50%; height: auto;">
                             <label for="exampleInputEmail1">캠퍼스</label>
-                            <select class="selectpicker form-control" id="seoulglobal" multiple title="동무 캠퍼스 어디요?" data-max-options="1" name="campus">
+                            <select class="selectpicker form-control" id="seoulglobal" name="campus">
                                 <option value="seoul">설</option>
                                 <option value="global">국</option>
                             </select>
@@ -75,7 +75,7 @@
                         <div>
                           <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
                               <label for="exampleInputEmail1">요일</label>
-                              <select class="selectpicker form-control" id="day_select" multiple title="요일을 선택해주시게나" data-max-options="1" name="day">
+                              <select class="selectpicker form-control" id="day_select" name="day">
                                   <option value="월">월</option>
                                   <option value="화">화</option>
                                   <option value="수">수</option>
@@ -87,7 +87,7 @@
                         <!--<div class="col-xs-3">-->
                           <div class="form-group" style="display: inline-block; max-width: 40%; height: auto;">
                               <label for="exampleInputEmail1">건물</label>
-                              <select class="selectpicker form-control" id="buildings" multiple title="건물을 선택해주시오" data-max-options="1" data-live-search="true" name="building" value="test">
+                              <select class="selectpicker form-control" id="buildings" name="building" value="test">
                                   <option class="before_select" disabled>동무 캠퍼스 까묵었다우</option>
                                   <!--서울-->
                                   <option class="seoul hidden" value="청">청운관</option>
@@ -221,11 +221,37 @@ $(document).ready(function (){
   // 타임피커, 셀렉트피커
   $('#timepicker1').timepicker();
   $('#timepicker2').timepicker();
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-    $('.selectpicker').selectpicker('mobile');
-  };
+  // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+  //   $('#seoulglobal').selectpicker({
+  //     mobile:true,
+  //     maxOptions:1
+  //   });
+  //   $('#day_select').selectpicker({
+  //     mobile:true,
+  //     maxOptions:1
+  //   });
+  //   $('#buildings').selectpicker({
+  //     mobile:true,
+  //     maxOptions:1
+  //   });
+  // };
 
-  $('.selectpicker').selectpicker('render');
+  $('#seoulglobal').selectpicker({
+      mobile:true,
+      title: "동무 캠퍼스 어디요?",
+      maxOptions:1
+    });
+    $('#day_select').selectpicker({
+      mobile:true,
+      title:"요일을 선택해주시게나",
+      maxOptions:1
+    });
+    $('#buildings').selectpicker({
+      mobile:true,
+      title:"건물을 선택해주시오",
+      liveSearch:true,
+      maxOptions:1
+    });
   
   // 한줄톡 관련
   $("#linetalk_input").keydown(function (key) {
