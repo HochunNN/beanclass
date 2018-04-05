@@ -41,22 +41,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
   
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Jua');
+  </style>
   
 </head>
-<body>
+<body style="background-color: #FFC0CB; font-family: 'Jua', sans-serif;">
 <div class="container">
   <div style="min-height:1100px" align="center">
     <div style="margin-top:20px; margin-right:30px;" align="right">
         <a href="http://codrug.me/" target="_blank">
-            <img height="40" width="40" src="<%= image_path("codruglogo.png") %>" class="img-circle">
+            <img height="40" width="40" style="border: 3px solid #ff4d67;" src="<%= image_path("codruglogo.png") %>" class="img-circle">
         </a>
         <a href="https://www.facebook.com/FindBeanClass/" target="_blank">
-            <img height="40" width="40" src="<%= image_path("fb-art.png") %>" class="img-circle">
+            <img height="40" width="40" style="border: 3px solid #ff4d67;" src="<%= image_path("fb-art.png") %>" class="img-circle">
         </a>
     </div>
     
       <a href="/">    
-        <img style="max-width: 100%; height: auto; margin-top:60px;"  src="<%= image_path("kyungheelogo_new.jpg") %>">
+        <img style="max-width: 100%; height: auto; margin-top:60px; border: 3px solid #ff4d67; border-radius: 10px;"  src="<%= image_path("kyungheelogo_new.jpg") %>">
       </a>
     <div style="margin-top:30px" class="container">
               <form action=/home/result method="get">
@@ -163,9 +166,9 @@
 <%= yield %><br><br>
 
       <div class="container"style="max-width: 100%; height: auto; float:center;">
-      	<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" style="color: black; font-size:15px;" align="left">&nbsp;한줄톡</span>
+      	<span aria-hidden="true" style="color: black; font-size:15px; font-family: 'Jua', sans-serif;" align="left">&nbsp;한줄톡</span>
         <!--한줄 톡 보여주기-->
-        <div id="linetalks" style="padding: 10px; border: #2CA44C solid 1px; border-radius:25px;">
+        <div id="linetalks" style="padding: 10px; border: #ff4d67 solid 2px; border-radius: 10px; background-color:#ffffff;">
           <% @linetalks.each do |l| %>
             <p align="left" id="linetalk" style="border-bottom:1px gray dotted;">-<%= l.linetalk_content %></p>
           <% end %>
@@ -173,9 +176,9 @@
         <%= will_paginate @linetalks %>   
         <div class="form-group">
           <div id="page_main_line_talk" class="input-group">
-            <input id="linetalk_input" type="text" class="form-control talk_content" name="page_main_line_talk" placeholder="무엇이든 얘기하세요." style="width:100%; background: none; background-color: none; border-radius: 0;" required>
+            <input id="linetalk_input" type="text" class="form-control talk_content" name="page_main_line_talk" placeholder="무엇이든 얘기하세요." style="width:100%; background: none; background-color: #ffffff; border-radius: 0;" required>
             <span class="input-group-btn">
-              <button class="btn btn-default talk_submit" type="button" style="background: none; border-radius: 0;">톡!</button>
+              <button class="btn btn-default talk_submit" type="button" style="background: none; border-radius: 0; background-color:#ffffff;">톡!</button>
             </span>
           </div><!-- /input-group -->
         </div>
@@ -282,8 +285,8 @@ $(document).ready(function (){
     });
     $(".talk_submit").click(function(){
       talk_content = $(".talk_content").val()
-      if (talk_content == "" || talk_content.length > 20) {
-      	alert("동무 글이 없거나 20자를 넘어가면 안된다오")
+      if (talk_content == "" || talk_content.length > 30) {
+      	alert("동무 글이 없거나 30자를 넘어가면 안된다오")
       } else {
   	    $.ajax({
   	      method:"post",
